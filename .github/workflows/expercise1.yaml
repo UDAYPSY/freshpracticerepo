@@ -1,0 +1,23 @@
+name: Practice
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: download dependencies
+        run: npm ci
+
+      - name: run linter
+        run: npm run lint
+
+      - name: test
+        run: npm run test
+      
+      - name: build
+        run: npm run build
+
+      - name: deploy
+        run: echo "Deploying to production..."
